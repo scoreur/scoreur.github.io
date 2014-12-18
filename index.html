@@ -22,7 +22,7 @@ function hide_scoreur(sl){
     //loading links
       $.ajax({
              type: "GET",
-             url: "links.html",
+             url: "/links.html",
     
              dataType: "html",
              success: function(data){
@@ -39,6 +39,18 @@ function hide_scoreur(sl){
                 });
              }
       });
+    //loading overviews
+      $.ajax({
+             type: "GET",
+             url: "/overviews.html",
+             
+             dataType: "html",
+             success: function(data){
+             var ul = document.getElementById("overviews");
+             ul.innerHTML = data;
+             }
+    });
+
                       
 });
 </script>
@@ -107,30 +119,12 @@ function hide_scoreur(sl){
 </div>
       <div class="right">
         <h2> Overview</h2>
-        <ul>
-          <li><a href="#" >Qt Scoreur</a></li>
-          <li><a href="#">Audio Source Separation</a>
-          <br/>&emsp;&emsp;supported by SVD</li>
-          <li><a href="overview/OnsetDetection.pdf">Onset &amp;Pitch Detection </a>
-          <br/>&emsp;&emsp;supported by CQT &amp; SVM</li>
-          <li><a href="http://scoreur.net/js/frontend/timbre_pitch_test.html">Timbre Classification </a>
-          <br/>&emsp;&emsp;supported by NN</li>
-          <li><a href="#">Decision Making</a>
-          <br/>&emsp;&emsp;aided by music theory</li>
-          <li><a href="overview/AutoComposer.pdf">Automatic Composer </a>
-          <br/>&emsp;&emsp;supported by HMM</li>
-          <li><a href="http://scoreur.net/js/example.html">Score Typesetting &amp; Editing</a>
-          <br/>&emsp;&emsp;interactive user interface</li>
+        <ul id="overviews">
+            Loading Overviews ...
         </ul>
         <h2>Links</h2>
         <ul class="sponsors" id="links">
-            <li class="sponsors"><a href="http://blog.sina.com.cn/s/blog_4a1f320b0100qmsl.html" title="新浪博客">科普: 音乐智能化</a><br /></li>
-            <li class="sponsors"><a href="http://en.wikipedia.org/wiki/Music_information_retrieval" title="维基百科">Wikipedia: MIR</a><br />Music Information Retrieval</li>
-            <li class="sponsors"><a href="http://www.music-ir.org/mirex/wiki/2014:Main_Page" title="MIREX">MIREX 2014</a><br />MIR Evaluation eXchange</li>
-            <li class="sponsors"><a href="http://my.vexflow.com/articles/53?source=enabled" title="在线曲谱编辑">My VexFlow</a><br /></li>
-            <li class="sponsors"><a href="http://lilypond.org/doc/v2.16/Documentation/web/index" title="曲谱排版">LilyPond</a><br /></li>
-            <li class="sponsors"><a href="http://chordify.net/pages/how-to-use-chordify/" title="和弦检测">Chordify</a><br /></li>
-            <li class="sponsors"><a href="https://www.pianoteq.com/" title="钢琴音色建模">Pianoteq</a><br />物理参数模拟钢琴音色</li>
+            Loading Links ...
         </ul>
         <p>&nbsp;</p>
         <div class="clr"></div>
