@@ -16,13 +16,25 @@ function show_scoreur(sl){
 function hide_scoreur(sl){
 	sl.style.color = '#11A';
 }
+function ajax_include(src,id){
+    $.ajax({
+           type: "GET",
+           url: src,
+           
+           dataType: "html",
+           success: function(data){
+           var ul = document.getElementById(id);
+           ul.innerHTML = data;
+           }
+           });
+}
 </script>
 <script>
     $(document).ready(function(){
     //loading links
       $.ajax({
              type: "GET",
-             url: "/links.html",
+             url: "/common/links.html",
     
              dataType: "html",
              success: function(data){
@@ -40,17 +52,11 @@ function hide_scoreur(sl){
              }
       });
     //loading overviews
-      $.ajax({
-             type: "GET",
-             url: "/overviews.html",
-             
-             dataType: "html",
-             success: function(data){
-             var ul = document.getElementById("overviews");
-             ul.innerHTML = data;
-             }
-    });
-
+     ajax_include("/common/overviews.html","overviews");
+    //loading records
+     ajax_include("/common/records.html","records");
+    //loading image gallery
+     ajax_include("/common/gallery.html","gallery");
                       
 });
 </script>
@@ -147,12 +153,8 @@ function hide_scoreur(sl){
       </div>
       <div class="blok">
         <h2>Image <span>Gallery</span></h2>
-        <a href="http://iiis.tsinghua.edu.cn/zh/yaoclass/" title="Yao Class"><img src="images/yao.png" alt="img" width="68" height="68" /></a>
-        <a href="http://shijian.student.tsinghua.edu.cn/team_blog/S201421001" title="清华实践平台"><img src="images/lm.png" alt="img" width="68" height="68" /></a>
-        <a href="http://github.com/scoreur/" title="GitHub Scoreur"><img src="images/scoreur.jpg" alt="img" width="68" height="68" /></a>
-         <a href="download/GameOfLife.jar" title="Java GameOfLife"><img src="images/gol.gif" alt="img" width="68" height="68" /></a>
-         <a href="http://www.yizhong.xm.fj.cn/index.html" title="my high school"><img src="images/wyj.jpg" alt="img" width="68" height="68" /></a>
-         <img src="images/fbg_7.jpg" alt="img" width="68" height="68" />
+        <div id="gallery">
+        </div>
         <div class="clr"></div>
         <h2>How We Got Scoreur</h2>
         <p>Simply combine <span style="color:#F00">score</span> and french suffix <span style="color:#F00">-eur</span>,<br/> to distinguish from <span style="color:#F00">scorer</span>.</p>
@@ -162,16 +164,15 @@ function hide_scoreur(sl){
     </div>
   </div>
   
-  <div id="keyboard_control" style="display:block" align="center">
 </div>
   <div class="footer">
     <div class="footer_resize">
     <p align="center">
       Powered by <a href="http://www.mycodes.net/" target="_blank">源码之家</a>&emsp;<a href="http://www.cssmoban.com/" target="_blank">网页模板</a>
-      &emsp;&emsp; | &emsp; &emsp; www.scoreur.net 版权所有 &emsp;&emsp;  | &emsp; &emsp; <a href="http://www.miitbeian.gov.cn/">京ICP备14038813号-1</a> &emsp;&emsp; | &emsp; &emsp; 清华园1号 邮编:100084
-     </p>
-      </div>
-      </div>
+      &emsp;&emsp; | &emsp; &emsp; <span id="records"></span>
+    </p>
+    </div>
+  </div>
       
       </body>
  </html>
