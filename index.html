@@ -5,6 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link href="css/style.css" rel="stylesheet" type="text/css" />
 
+<script type="text/javascript" src="css/jquery.min.js"></script>
 <script type="text/javascript" src="css/cufon-yui.js"></script>
 <script type="text/javascript" src="css/arial.js"></script>
 <script type="text/javascript" src="css/cuf_run.js"></script>
@@ -15,6 +16,31 @@ function show_scoreur(sl){
 function hide_scoreur(sl){
 	sl.style.color = '#11A';
 }
+</script>
+<script>
+    $(document).ready(function(){
+    //loading links
+      $.ajax({
+             type: "GET",
+             url: "links.html",
+    
+             dataType: "html",
+             success: function(data){
+                 var links = data.split("<br />");
+                 var ul = document.getElementById("links");
+                 ul.innerHTML = "";
+                 $.each(links, function(index, element){
+                    
+                    var newli = document.createElement("li");
+                    newli.innerHTML = element;
+                    newli.setAttribute("class", "sponsors");
+                    ul.appendChild(newli);
+                      
+                });
+             }
+      });
+                      
+});
 </script>
 <!-- CuFon ends -->
 
@@ -44,7 +70,7 @@ function hide_scoreur(sl){
       </div>
       <div class="clr"></div>
       <img src="images/header_img.png" alt="img" width="360" height="240" />
-<div class="header_text_bg_resize">
+<div class="header_text_bg_resize" id="motto">
       <p>This is an SRT project in the field of Music Information Retrieval(MIR), aiming at transcribing audio to score.</p>
       <li style="color:#11A;" onmouseover="show_scoreur(this)" onmouseout="hide_scoreur(this)"><span style="color:#FF0;size:landscape">S</span>harp - shapen our brains to overcome limitations.</li>
       <li style="color:#11A;" onmouseover="show_scoreur(this)" onmouseout="hide_scoreur(this)"><span style="color:#FF0;size:landscape">C</span>ollective - united, exchanging ideas to make progress together.</li>
@@ -87,17 +113,17 @@ function hide_scoreur(sl){
           <br/>&emsp;&emsp;supported by SVD</li>
           <li><a href="overview/OnsetDetection.pdf">Onset &amp;Pitch Detection </a>
           <br/>&emsp;&emsp;supported by CQT &amp; SVM</li>
-          <li><a href="js/frontend/timbre_pitch_test.html">Timbre Classification </a>
+          <li><a href="http://scoreur.net/js/frontend/timbre_pitch_test.html">Timbre Classification </a>
           <br/>&emsp;&emsp;supported by NN</li>
           <li><a href="#">Decision Making</a>
           <br/>&emsp;&emsp;aided by music theory</li>
           <li><a href="overview/AutoComposer.pdf">Automatic Composer </a>
           <br/>&emsp;&emsp;supported by HMM</li>
-          <li><a href="js/example.html">Score Typesetting &amp; Editing</a>
+          <li><a href="http://scoreur.net/js/example.html">Score Typesetting &amp; Editing</a>
           <br/>&emsp;&emsp;interactive user interface</li>
         </ul>
         <h2>Links</h2>
-        <ul class="sponsors">
+        <ul class="sponsors" id="links">
             <li class="sponsors"><a href="http://blog.sina.com.cn/s/blog_4a1f320b0100qmsl.html" title="新浪博客">科普: 音乐智能化</a><br /></li>
             <li class="sponsors"><a href="http://en.wikipedia.org/wiki/Music_information_retrieval" title="维基百科">Wikipedia: MIR</a><br />Music Information Retrieval</li>
             <li class="sponsors"><a href="http://www.music-ir.org/mirex/wiki/2014:Main_Page" title="MIREX">MIREX 2014</a><br />MIR Evaluation eXchange</li>
