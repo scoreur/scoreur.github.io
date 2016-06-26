@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Scoreur Project</title>
-<script src="css/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-2.1.4.min.js	"></script>
 <script src="js/keyboard.js"></script>
 <script src="js/backend/func.js"></script>
 <script src="js/backend/lib/queue.js"></script>
@@ -15,31 +16,42 @@
                
                dataType: "html",
                success: function(data){
-               var ul = document.getElementById(id);
-               ul.innerHTML = data;
+               	$("#"+id).html(data);
                }
-               });
+        });
     }
 
 function git_tip()
 {
-	document.getElementById("gitTip").innerHTML = "click to see our codes!";
-	document.getElementById("git").style.color="#F09";
+	$("#gitTip").html("click to see our codes!");
+	$("#git").css({"color":"#F09"});
 }
 function git_tip_out()
 {
-	document.getElementById("gitTip").innerHTML = "<br/>";
-	document.getElementById("git").style.color="#069";
+	$("#gitTip").html("<br>");
+	$("#git").css({"color":"#069"});
 }
 function zoom_in()
 {
-	document.getElementById("res_score").width *= 1.05;
-	document.getElementById("res_score").height *= 1.05;
+	$("#res_score").css({
+		"width": function(index, value){ 
+		return parseFloat(value) * 1.05;
+		},
+		"height": function(index, value){ 
+		return parseFloat(value) * 1.05;
+		},
+	});
 }
 function zoom_out()
 {
-	document.getElementById("res_score").width *= 0.95;
-	document.getElementById("res_score").height *= 0.95;
+	$("#res_score").css({
+		"width": function(index, value){ 
+		return parseFloat(value) * 0.95;
+		},
+		"height": function(index, value){ 
+		return parseFloat(value) * 0.95;
+		},
+	});
 }
 var wh = 130;//whiteheight
 var bh = 70;//blackheight
@@ -47,26 +59,25 @@ var bw = 6;//halfblackwidth
 var ww = 9;//halfwhitewidth
 wfn=[1,-0.3,-0.1,0.5,0,0,0,0,-0.5,0,0,0,0,0,0,0.1];
 function make_keyboard(){
-	kb = document.getElementById("keyboard");
-	kb.setAttribute("height", wh);
-	kb.setAttribute("width", ww *104);
-	kb.innerHTML = keyboard_xml();
+	$("#keyboard").css({"height": wh, "width": ww*104}).html(keyboard_xml());
 }
 function keydown(id){
-	document.getElementById("gitTip").innerHTML = "You've clicked the No."+(id+1)+" key from the left";
+	$("#gitTip").html("You've clicked the No."+(id+1)+" key from the left");
+
 	//ks = document.getElementById("ksnd_"+);
 	
 	//WAVPLAY.score_start(id,wfn);
 	WAVPLAY.score_start(id,wfn);
 	
 	if(keycolor(id%12)=="white"){
-	document.getElementById("key_"+(id)).style.fill = "#EEE";
+	    $("#key_"+(id)).css("fill", "#EEE");
 	}else{
-		document.getElementById("key_"+(id)).style.fill = "#444";}
+		$("#key_"+(id)).css("fill", "#444");
+	}
 }
 function keyup(id){
-	document.getElementById("key_"+(id)).style.fill = keycolor(id % 12);
-	document.getElementById("gitTip").innerHTML = "<br/>";
+	$("#key_"+(id)).css("fill", keycolor(id % 12));
+	$("#gitTip").html("<br/>");
 	
 	//WAVPLAY.score_end(id,wfn);
 		
@@ -84,22 +95,21 @@ function display_keyboard(what){
 	var obj = typeof what == 'object'
 		? what : document.getElementById(what);
 	if(obj.style.display == 'block'){
-		document.getElementById("btn_display").innerHTML = 'show keyboard';
+		$("#btn_display").html('show keyboard');
 		obj.style.display = 'none';
 	}
 	else{
-		document.getElementById("btn_display").innerHTML = 'hide keyboard';
+		$("#btn_display").html('hide keyboard');
 		obj.style.display = 'block';
 	}
 }
 	
 </script>
-<script>
-    ajax_include("/common/records.html","records");
-</script>
+
 </head>
 
 <body>
+<div class="container">
 <div align="center">
 <h2 style=" font-style:oblique; font-family:Gotham, 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#00C">SCOREUR</h2>
 <img src="/images/scoreur.jpg" alt="scoreur's avatar" width="200" height="200"/>
@@ -119,26 +129,28 @@ hide keyboard
 <button onClick="small_keyboard()" type="button">smaller</button>
 </div>
 <br/>
-<div align="center">
+<div align="center" class="span12">
     <audio src="/audio/resurgence.mp3" controls>
 Your browser does not support html5 audio!
 </audio>
 <h3> Here's the score of the song you can sing with. Enjoy it!</h3>
-<button onClick="zoom_in()" style="background-color:#CF6; alignment-adjust:central; text-height:text-size">zoom in</button>
-<button onClick="zoom_out()" style="background-color:#CF6; alignment-adjust:central; text-height:text-size">zoom out</button>
+<button onClick="zoom_in()" style="alignment-adjust:central; text-height:text-size">zoom in</button>
+<button onClick="zoom_out()" style="alignment-adjust:central; text-height:text-size">zoom out</button>
 <br/>
 <img id="res_score" src="/images/res_sco.jpg" alt="resurgence score" width="400" height="600"/>
 </div>
+</div><!-- /container -->
 
-
-<div id="snd" style="display:none" align="center"><audio id="ksnd_0" src="none" autoplay></audio><audio id="ksnd_1" src="none" autoplay></audio><audio id="ksnd_2" src="none" autoplay></audio><audio id="ksnd_3" src="none" autoplay></audio><audio id="ksnd_4" src="none" autoplay></audio><audio id="ksnd_5" src="none" autoplay></audio><audio id="ksnd_6" src="none" autoplay></audio><audio id="ksnd_7" src="none" autoplay></audio><audio id="ksnd_8" src="none" autoplay></audio><audio id="ksnd_9" src="none" autoplay></audio><audio id="ksnd_10" src="none" autoplay></audio><audio id="ksnd_11" src="none" autoplay></audio><audio id="ksnd_12" src="none" autoplay></audio><audio id="ksnd_13" src="none" autoplay></audio><audio id="ksnd_14" src="none" autoplay></audio><audio id="ksnd_15" src="none" autoplay></audio><audio id="ksnd_16" src="none" autoplay></audio><audio id="ksnd_17" src="none" autoplay></audio><audio id="ksnd_18" src="none" autoplay></audio><audio id="ksnd_19" src="none" autoplay></audio><audio id="ksnd_20" src="none" autoplay></audio><audio id="ksnd_21" src="none" autoplay></audio><audio id="ksnd_22" src="none" autoplay></audio><audio id="ksnd_23" src="none" autoplay></audio><audio id="ksnd_24" src="none" autoplay></audio><audio id="ksnd_25" src="none" autoplay></audio><audio id="ksnd_26" src="none" autoplay></audio><audio id="ksnd_27" src="none" autoplay></audio><audio id="ksnd_28" src="none" autoplay></audio><audio id="ksnd_29" src="none" autoplay></audio><audio id="ksnd_30" src="none" autoplay></audio><audio id="ksnd_31" src="none" autoplay></audio><audio id="ksnd_32" src="none" autoplay></audio><audio id="ksnd_33" src="none" autoplay></audio><audio id="ksnd_34" src="none" autoplay></audio><audio id="ksnd_35" src="none" autoplay></audio><audio id="ksnd_36" src="none" autoplay></audio><audio id="ksnd_37" src="none" autoplay></audio><audio id="ksnd_38" src="none" autoplay></audio><audio id="ksnd_39" src="none" autoplay></audio><audio id="ksnd_40" src="none" autoplay></audio><audio id="ksnd_41" src="none" autoplay></audio><audio id="ksnd_42" src="none" autoplay></audio><audio id="ksnd_43" src="none" autoplay></audio><audio id="ksnd_44" src="none" autoplay></audio><audio id="ksnd_45" src="none" autoplay></audio><audio id="ksnd_46" src="none" autoplay></audio><audio id="ksnd_47" src="none" autoplay></audio><audio id="ksnd_48" src="none" autoplay></audio><audio id="ksnd_49" src="none" autoplay></audio><audio id="ksnd_50" src="none" autoplay></audio><audio id="ksnd_51" src="none" autoplay></audio><audio id="ksnd_52" src="none" autoplay></audio><audio id="ksnd_53" src="none" autoplay></audio><audio id="ksnd_54" src="none" autoplay></audio><audio id="ksnd_55" src="none" autoplay></audio><audio id="ksnd_56" src="none" autoplay></audio><audio id="ksnd_57" src="none" autoplay></audio><audio id="ksnd_58" src="none" autoplay></audio><audio id="ksnd_59" src="none" autoplay></audio><audio id="ksnd_60" src="none" autoplay></audio><audio id="ksnd_61" src="none" autoplay></audio><audio id="ksnd_62" src="none" autoplay></audio><audio id="ksnd_63" src="none" autoplay></audio><audio id="ksnd_64" src="none" autoplay></audio><audio id="ksnd_65" src="none" autoplay></audio><audio id="ksnd_66" src="none" autoplay></audio><audio id="ksnd_67" src="none" autoplay></audio><audio id="ksnd_68" src="none" autoplay></audio><audio id="ksnd_69" src="none" autoplay></audio><audio id="ksnd_70" src="none" autoplay></audio><audio id="ksnd_71" src="none" autoplay></audio><audio id="ksnd_72" src="none" autoplay></audio><audio id="ksnd_73" src="none" autoplay></audio><audio id="ksnd_74" src="none" autoplay></audio><audio id="ksnd_75" src="none" autoplay></audio><audio id="ksnd_76" src="none" autoplay></audio><audio id="ksnd_77" src="none" autoplay></audio><audio id="ksnd_78" src="none" autoplay></audio><audio id="ksnd_79" src="none" autoplay></audio><audio id="ksnd_80" src="none" autoplay></audio><audio id="ksnd_81" src="none" autoplay></audio><audio id="ksnd_82" src="none" autoplay></audio><audio id="ksnd_83" src="none" autoplay></audio><audio id="ksnd_84" src="none" autoplay></audio><audio id="ksnd_85" src="none" autoplay></audio><audio id="ksnd_86" src="none" autoplay></audio><audio id="ksnd_87" src="none" autoplay></audio></div>
-
-<div id="ICP_rec" align="center" style="display:block">
+<div align="center" style="display:block">
     <p align="center">
     Powered by <a href="http://www.mycodes.net/" target="_blank">源码之家</a>&emsp;<a href="http://www.cssmoban.com/" target="_blank">网页模板</a>
     &emsp;&emsp; | &emsp; &emsp; <span id="records"></span>
     </p>
 </div>
+
+<script>
+    ajax_include("/common/records.html","records");
+</script>
 </body>
 
 </html>
