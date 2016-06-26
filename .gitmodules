@@ -1,0 +1,4 @@
+[submodule "webapp"]
+	path = webapp
+	url = git@github.com:scoreur/webapp.git
+	branch = master
