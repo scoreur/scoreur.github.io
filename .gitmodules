@@ -2,3 +2,6 @@
 	path = webapp
 	url = https://github.com/scoreur/webapp.git
 	branch = master
+[submodule "gen"]
+	path = gen
+	url = https://github.com/scoreur/gen.git
