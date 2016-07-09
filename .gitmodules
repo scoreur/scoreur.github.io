@@ -5,3 +5,4 @@
 [submodule "gen"]
 	path = gen
 	url = https://github.com/apwan06/gen.git
+    branch = master
