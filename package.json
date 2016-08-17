@@ -1,0 +1,27 @@
+{
+  "name": "scoreur.github.io",
+  "version": "0.1.0",
+  "description": "organization site for Scoreur",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scoreur/scoreur.github.io.git"
+  },
+  "keywords": [
+    "scoreur",
+    "trascribe"
+  ],
+  "author": "Yijie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/scoreur/scoreur.github.io/issues"
+  },
+  "homepage": "https://github.com/scoreur/scoreur.github.io#readme",
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-contrib-jade": "1.0.0"
+  }
+}

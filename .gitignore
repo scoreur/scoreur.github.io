@@ -1,3 +1,5 @@
 ftp/*
 *.php
 audio/piano/*
+node_modules/*
+
