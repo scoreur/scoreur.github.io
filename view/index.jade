@@ -70,36 +70,7 @@ html
             #motto.header_text_bg_resize
               p
                 | This is an SRT project in the field of Music Information Retrieval(MIR), aiming at transcribing audio to score.
-              |       
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') S
-                | harp - shapen our brains to overcome limitations.
-              |       
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') C
-                | ollective - united, exchanging ideas to make progress together.
-              |       
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') O
-                | pen - exposed to various ideas and constantly examine those preceived.
-              |       
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') R
-                | esolved - stick to one goal and believe to achieve it.
-              |       
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') E
-                | volutionary - we experience new growth as our research evolves.
-              |  
-              | &#x9;  
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') U
-                | nique - any repetition is designed to birth our uniqueness.
-              | &#x9;  
-              li(style='color:#11A;', onmouseover='show_scoreur(this)', onmouseout='hide_scoreur(this)')
-                span(style='color:#FF0;size:landscape') R
-                | enewable - able to renew our work whenever faced with setbacks.
-            |       
+                    
             .clr
         |     
         .clr
@@ -124,14 +95,13 @@ html
             p
               |  本项目旨在综合运用专家系统和机器学习的方法，对逻辑无序的音频采样数据进行更深层次的“数字化”，剥离出旋律、节奏等音乐元素，使之变为有规律的音乐语言，并用类似MIDI的格式存储或输出曲谱，便于音乐爱好者的学习交流。
 
-            p
-              a(href='#') Read more | Comments (5)        
+            include comment.jade
+                     
             |         
             h2
-              span Possibility
+              span 
               br
-            p
-              | Since the advent of digital music, sound processing technology has been abundantly studied, leading to the development of various algorithms like STFT, wavlet analysis, cepstrum method, adaptive filtering, etc. In addition, digital music is well-organized audio, whose inherent properties may be determined by music theory in some way. Comprehensively combining music theoretical methods with statistics methods makes possible the simulation of human ears as sound processors. The state of the art allows query by humming and audio fingerprint generating, which along with other technologies, demonstrate the matured utilization of those methods.
+            
             |         
             p
               a(href='#') Read more | Comments 
@@ -150,15 +120,10 @@ html
       .FBG
         .FBG_resize
           .blok2
-            h2 About      
+            h2 Possibility      
             img(src='images/fbg_1.jpg', alt='img', width='68', height='68')  
             p
-              | We are students in 2013 Yao Class (undergraduate division of the Interdisciplinary Institute for Informatioin Sciences, Tsinghua University). We share interests in music and coding. Together we go for the simple goal to make computer more intellegent to feel the musical bits, not just the cold bit stream but the colorful world behind.
-            p
-              | Our work at the time may be preliminary, either implementing complicated algorithms proposed by others, or applying our limited knowledge of MIR to audio processing. But what we did during the past summer indeed laid a solid foundation for our further exploration.
-              br
-              | Despite all kinds of difficulties, luckily we are still able to go through the whole process from audio input to score output. We are going to formulate our work within one or two weeks to give you a more clear view of what we have done.
-              br        
+              | Since the advent of digital music, sound processing technology has been abundantly studied, leading to the development of various algorithms like STFT, wavlet analysis, cepstrum method, adaptive filtering, etc. In addition, digital music is well-organized audio, whose inherent properties may be determined by music theory in some way. Comprehensively combining music theoretical methods with statistics methods makes possible the simulation of human ears as sound processors. The state of the art allows query by humming and audio fingerprint generating, which along with other technologies, demonstrate the matured utilization of those methods.
               a(href='#') Learn more...  
           .blok
             h2
@@ -167,17 +132,7 @@ html
             #gallery
               include gallery.jade    
             .clr
-            h2 How We Got Scoreur      
-            p
-              | Simply combine 
-              span(style='color:#F00') score
-              |  and french suffix 
-              span(style='color:#F00') -eur
-              | ,
-              br
-              |  to distinguish from 
-              span(style='color:#F00') scorer
-              | .  
+            
           .clr
     .footer
       .footer_resize

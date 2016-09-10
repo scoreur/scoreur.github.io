@@ -1,8 +1,0 @@
-[submodule "webapp"]
-	path = webapp
-	url = https://github.com/scoreur/webapp.git
-	branch = master
-[submodule "gen"]
-	path = gen
-	url = https://github.com/apwan06/gen.git
-    branch = master
