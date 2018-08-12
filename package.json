@@ -4,6 +4,7 @@
   "description": "organization site for Scoreur",
   "main": "app.js",
   "scripts": {
+    "build": "grunt jade",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +22,8 @@
   },
   "homepage": "https://github.com/scoreur/scoreur.github.io#readme",
   "devDependencies": {
-    "grunt": "1.0.1",
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-jade": "1.0.0"
   }
 }
