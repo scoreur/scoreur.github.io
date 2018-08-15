@@ -1,20 +1,20 @@
 
 module.exports = function(grunt){
     grunt.initConfig({
-        jade: {
+        pug: {
             options: {
                 client: false,
                 pretty: true
             },
             web: {
-                src: 'view/index.jade',
+                src: 'view/index.pug',
                 dest: './index.html',
             }
         },
         
     });
    
-    grunt.loadNpmTasks('grunt-contrib-jade');
-    grunt.registerTask('default', ['jade:web']);
+    grunt.loadNpmTasks('grunt-contrib-pug');
+    grunt.registerTask('default', ['pug:web']);
 
 }
