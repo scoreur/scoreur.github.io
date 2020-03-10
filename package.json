@@ -1,7 +1,7 @@
 {
-  "name": "scoreur.github.io",
+  "name": "scoreur",
   "version": "0.1.0",
-  "description": "organization site for Scoreur",
+  "description": "organization site",
   "main": "app.js",
   "scripts": {
     "build": "grunt pug",
@@ -12,10 +12,9 @@
     "url": "git+https://github.com/scoreur/scoreur.github.io.git"
   },
   "keywords": [
-    "scoreur",
-    "trascribe"
+    "scoreur"
   ],
-  "author": "Yijie",
+  "author": "scoreur",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/scoreur/scoreur.github.io/issues"
