@@ -2,7 +2,7 @@
   "name": "scoreur",
   "version": "0.1.0",
   "description": "organization site",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "build": "grunt pug",
     "test": "echo \"Error: no test specified\" && exit 1"
